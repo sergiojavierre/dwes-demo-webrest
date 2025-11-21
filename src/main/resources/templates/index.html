@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <nav th:replace="fragments/nav"></nav>
+  <form action="/">
+    <input th:name="titulo" th:placeholder="titulo">
+    <input th:name="año" th:type="year">
+    <select th:name="director">
+      <option value="">Seleccione un director</option>
+      <option th:each="director : ${directores}" th:text="${director.nombre}"></option>
+    </select>
+    <button>Buscar</button>
+  </form>
+  <ul>
+    <li th:each="pelicula : ${peliculas}">
+      <p th:text="${pelicula.titulo}"></p>
+      <p th:text="${pelicula.año}"></p>
+      <p th:text="${pelicula.director.nombre}"></p>
+      <p th:text="${pelicula.genero.nombre}"></p>
+    </li>
+  </ul>
+</body>
+</html>
