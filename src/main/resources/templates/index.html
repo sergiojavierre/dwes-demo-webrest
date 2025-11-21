@@ -8,10 +8,14 @@
   <nav th:replace="fragments/nav"></nav>
   <form action="/">
     <input th:name="titulo" th:placeholder="titulo">
-    <input th:name="año" th:type="year">
+    <input th:name="año" th:type="number">
     <select th:name="director">
       <option value="">Seleccione un director</option>
       <option th:each="director : ${directores}" th:text="${director.nombre}"></option>
+    </select>
+    <select th:name="genero">
+      <option value="">Seleccione un género</option>
+      <option th:each="genero : ${generos}" th:text="${genero.nombre}"></option>
     </select>
     <button>Buscar</button>
   </form>

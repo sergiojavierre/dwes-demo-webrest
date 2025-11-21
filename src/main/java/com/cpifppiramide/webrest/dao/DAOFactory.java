@@ -2,6 +2,8 @@ package com.cpifppiramide.webrest.dao;
 
 import com.cpifppiramide.webrest.dao.directores.DAODirectores;
 import com.cpifppiramide.webrest.dao.directores.DAODirectoresMySQL;
+import com.cpifppiramide.webrest.dao.generos.DAOGeneros;
+import com.cpifppiramide.webrest.dao.generos.DAOGenerosMySQL;
 import com.cpifppiramide.webrest.dao.peliculas.DAOPeliculas;
 import com.cpifppiramide.webrest.dao.peliculas.DAOPeliculasMySQL;
 
@@ -11,6 +13,7 @@ public class DAOFactory {
 
     private DAOPeliculas daoPeliculas;
     private DAODirectores daoDirectores;
+    private DAOGeneros daoGeneros;
 
     private DAOFactory(){}
 
@@ -27,5 +30,10 @@ public class DAOFactory {
     public DAODirectores getDaoDirectores(){
         if(daoDirectores == null) daoDirectores = new DAODirectoresMySQL();
         return daoDirectores;
+    }
+
+    public DAOGeneros getDaoGeneros(){
+        if(daoGeneros == null) daoGeneros = new DAOGenerosMySQL();
+        return daoGeneros;
     }
 }

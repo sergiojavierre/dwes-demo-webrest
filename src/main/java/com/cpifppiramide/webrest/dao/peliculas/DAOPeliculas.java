@@ -9,5 +9,5 @@ import java.util.List;
 public interface DAOPeliculas {
 
     public List<Pelicula> lista(String titulo, Integer año, Director director, Genero genero);
-
+    public void inserta(Pelicula pelicula);
 }

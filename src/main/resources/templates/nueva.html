@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<nav th:replace="fragments/nav"></nav>
+<form action="/guarda" th:method="post">
+  <input th:name="titulo" th:placeholder="titulo" th:required>
+  <input th:name="año" th:type="number" th:required>
+  <select th:name="director" th:required>
+    <option value="">Seleccione un director</option>
+    <option th:each="director : ${directores}" th:text="${director.nombre}"></option>
+  </select>
+  <select th:name="genero" th:required>
+    <option value="">Seleccione un género</option>
+    <option th:each="genero : ${generos}" th:text="${genero.nombre}"></option>
+  </select>
+  <button>Guarda</button>
+</form>
+</body>
+</html>

@@ -60,4 +60,20 @@ public class DAOPeliculasMySQL implements DAOPeliculas{
         }
         return peliculas;
     }
+
+    @Override
+    public void inserta(Pelicula pelicula) {
+        String query = "insert into peliculas (titulo, año, director, genero) values (?,?,?,?)";
+        try {
+            PreparedStatement statement = DBConnection.getInstance().prepareStatement(query);
+            statement.setString(1,pelicula.getTitulo());
+            statement.setInt(2,pelicula.getAño());
+            statement.setString(3,pelicula.getDirector().getNombre());
+            statement.setString(4,pelicula.getGenero().getNombre());
+            statement.execute();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
 }
